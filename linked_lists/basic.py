@@ -38,6 +38,21 @@ def traverse(root):
    print("None")
    return
 
+def insertNodeAtPosition(root, newNode, position):
+  if position == 1:
+    newNode.next = root
+    return newNode
+
+  current = root
+  for _ in range(position - 2):
+    if current is None:
+      break
+    current = current.next
+
+  newNode.next = current.next
+  current.next = newNode
+  return root
+
 node1 = Node(1)
 node2 = Node(2)
 node3 = Node(3)
@@ -49,7 +64,11 @@ node2.next=node3
 node3.next=node4
 node4.next=node5
 
-node1=remove_node(node1,1)
+#node1=remove_node(node1,1)
+#traverse(node1)
+new=Node(99)
+traverse(node1)
+node1=insertNodeAtPosition(node1,new,2)
 traverse(node1)
 
 
