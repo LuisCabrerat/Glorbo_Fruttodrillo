@@ -1,4 +1,6 @@
 '''
+STACKS (LIFO)
+
 Push: Adds a new element on the stack.
 Pop: Removes and returns the top element from the stack.
 Peek: Returns the top (last) element on the stack.
