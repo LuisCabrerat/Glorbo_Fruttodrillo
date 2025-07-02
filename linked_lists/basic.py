@@ -6,31 +6,32 @@ insert node
 sort
 '''
 class Node:
-   def __init__(self,data:int):
+   data:int
+   def __init__(self,data:int)->None:
       self.next = None
       self.data = data
 
 def remove_node(root: Node, value: int) -> Node:
     if root !=None and root.data == value:
-        new_root = root.next
+        new_root:Node = root.next
         del root                
         return new_root
 
-    current = root
+    current:Node = root
     while current.next !=None and current.next.data != value:
         current = current.next
 
     if current.next == None:
         return root
 
-    node_to_remove = current.next
+    node_to_remove:Node = current.next
     current.next = node_to_remove.next
     del node_to_remove              
 
     return root
 
-def traverse(root):
-   current_position=root
+def traverse(root:Node)->None:
+   current_position:Node=root
    
    while current_position !=None:
       print(current_position.data,end="->")
@@ -38,12 +39,12 @@ def traverse(root):
    print("None")
    return
 
-def insertNodeAtPosition(root, newNode, position):
+def insertNodeAtPosition(root:Node, newNode:Node, position:int)-> Node:
   if position == 1:
     newNode.next = root
     return newNode
 
-  current = root
+  current:Node = root
   for _ in range(position - 2):
     if current is None:
       break
@@ -53,11 +54,11 @@ def insertNodeAtPosition(root, newNode, position):
   current.next = newNode
   return root
 
-node1 = Node(1)
-node2 = Node(2)
-node3 = Node(3)
-node4 = Node(4)
-node5 = Node(5)
+node1:Node = Node(1)
+node2:Node = Node(2)
+node3:Node = Node(3)
+node4:Node = Node(4)
+node5:Node = Node(5)
 
 node1.next=node2
 node2.next=node3
@@ -66,11 +67,7 @@ node4.next=node5
 
 #node1=remove_node(node1,1)
 #traverse(node1)
-new=Node(99)
+new=Node(100)
 traverse(node1)
 node1=insertNodeAtPosition(node1,new,2)
 traverse(node1)
-
-
-
-

@@ -9,23 +9,20 @@ Size: Finds the number of elements in the stack.
 LIFO last in first out
 '''
 
-stack = [1,2,3,4,5]
+my_stack : list[int] = [1,2,3,4,5]
 
-def push(elemento,stack):
-   return stack.append(elemento)
+def push(elemento:int,stack:list[int])->None:
+   stack.append(elemento)
+   return None
 
-def pop(stack):
+def pop(stack:list[int])->int:
    return stack.pop(-1)
 
-def peek(stack):
+def peek(stack:list[int])->int:
    return stack[-1]
 
-def isEmpty(stack):
+def isEmpty(stack:list[int])->bool:
    return not bool(stack)
 
-def size(stack):
+def size(stack:list[int])->int:
    return len(stack)
-
-print(isEmpty(stack))
-print(stack)
-
